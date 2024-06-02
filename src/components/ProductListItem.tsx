@@ -3,12 +3,14 @@ import Colors from '../constants/Colors';
 import   {Product} from '../types';
 
 
+const defaultimage = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/extravaganzza.png';
+
 type ProductListItemprops ={
   products:Product;
 }
 const ProductListItem = ({products}:ProductListItemprops)=>{
   return(<View style={styles.container}>
-    <Image source={{uri: products.image}} style={styles.image}/>
+    <Image source={{uri: products.image || defaultimage}} style={styles.image}/>
     <Text style={styles.title}>{products.name}</Text>
     <Text style={styles.price}>{products.price}</Text>
   </View>)
