@@ -10,7 +10,7 @@ type ProductListItemprops ={
 }
 const ProductListItem = ({products}:ProductListItemprops)=>{
   return(<View style={styles.container}>
-    <Image source={{uri: products.image || defaultimage}} style={styles.image}/>
+    <Image source={{uri: products.image || defaultimage}} style={styles.image} resizeMode='contain'/>
     <Text style={styles.title}>{products.name}</Text>
     <Text style={styles.price}>{products.price}</Text>
   </View>)
@@ -23,9 +23,11 @@ export default ProductListItem;
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
   backgroundColor:'white',
   padding:10,
-  borderRadius:20
+  borderRadius:20,
+  maxWidth:'50%'
   },
   image:{
     width:'100%',
