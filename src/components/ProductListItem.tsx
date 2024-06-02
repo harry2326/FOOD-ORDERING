@@ -1,18 +1,14 @@
 import { Image, StyleSheet,Text,View} from 'react-native';
 import Colors from '../constants/Colors';
-import { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import   {Product} from '../types';
 
 
-interface Product {
-  image: string;
-  name: string;
-  price:Float;
-  // Add other properties as needed
+type ProductListItemprops ={
+  products:Product;
 }
-
-const ProductListItem = ({ products }: { products: Product })=>{
+const ProductListItem = ({products}:ProductListItemprops)=>{
   return(<View style={styles.container}>
-    <Image source={{uri:products.image}} style={styles.image}/>
+    <Image source={{uri: products.image}} style={styles.image}/>
     <Text style={styles.title}>{products.name}</Text>
     <Text style={styles.price}>{products.price}</Text>
   </View>)
